@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { useWallet } from "@/context/WalletContext";
 import { validateAddress, buildTransaction, getNetworkPassphrase, getStellarServer } from "@/lib/stellar";
 import { signTxWithFreighter } from "@/lib/freighter";
+import { Transaction } from "@stellar/stellar-sdk";
 import { Send, AlertCircle, CheckCircle2 } from "lucide-react";
 import { TransactionResult } from "./TransactionResult";
 import { toast } from "sonner";
@@ -70,7 +71,8 @@ export const SendForm: React.FC = () => {
       const signedXdr = await signTxWithFreighter(xdr, getNetworkPassphrase());
       
       const server = getStellarServer();
-      const submission = await server.submitTransaction(signedXdr as any);
+      const signedTx = new Transaction(signedXdr, getNetworkPassphrase());
+      const submission = await server.submitTransaction(signedTx);
       
       setResult({ success: true, data: submission.hash });
       await refreshBalance();
