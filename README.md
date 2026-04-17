@@ -1,61 +1,65 @@
 # StellarSend
 
-StellarSend is a premium, high-speed dApp for sending XLM on the Stellar Testnet. Built with Next.js 14, TypeScript, and shadcn/ui, it offers a futuristic interface for global payments.
+StellarSend is a premium, high-speed dApp for sending XLM on the Stellar Testnet. Built with Next.js 14, TypeScript, and shadcn/ui, it offers a futuristic interface for global payments with real-time validation and seamless wallet integration.
 
-## Features
+## Project Description
 
-- **Wallet Connectivity**: Seamlessly connect with the Freighter browser extension.
-- **Real-time Balance**: Instantly fetch and update your XLM balance.
-- **Smart Payment Form**: Real-time address validation and automatic transaction type selection (Payment vs Create Account).
-- **Testnet Funding**: Quick-fund your account using Friendbot integration.
-- **Transaction Feedback**: Detailed success and error panels with direct links to StellarExpert.
+StellarSend aims to provide a "Stellar" user experience for basic blockchain operations. It leverages the Freighter wallet for secure, client-side transaction signing and interfaces directly with the Stellar Horizon Testnet. Whether you are sending a standard payment or creating a new account, StellarSend handles the logic automatically, ensuring your transactions are processed efficiently.
 
-## Technology Stack
-
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: TailwindCSS + shadcn/ui
-- **Stellar SDK**: `@stellar/stellar-sdk`
-- **Wallet API**: `@stellar/freighter-api`
-- **Icons**: Lucide React
+### Key Features
+- **Futuristic UI**: Glassmorphism design system with dark mode aesthetics.
+- **Smart Logic**: Automatically switches between `payment` and `createAccount` based on destination existence.
+- **Wallet-Centric**: Built for the **Freighter** extension ecosystem.
+- **Developer Ready**: Full TypeScript support and CI/CD ready.
 
 ## Getting Started
 
 ### Prerequisites
+- **Node.js**: Version 18.0.0 or higher.
+- **Freighter Wallet**: [Install extension](https://www.freighter.app/) and set network to **Testnet**.
 
-- Node.js 18+
-- [Freighter Wallet](https://www.freighter.app/) extension installed in your browser.
+### Setup Instructions
 
-### Installation
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/saasflare-online/stellarsend.git
+    cd stellarsend
+    ```
 
-1. **Clone the repository:**
-   ```bash
-   git clone <repository-url>
-   cd simplepaymentdapp
-   ```
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+3.  **Environment Setup**:
+    Copy the example environment file:
+    ```bash
+    cp .env.example .env.local
+    ```
 
-3. **Run the development server:**
-   ```bash
-   npm run dev
-   ```
+4.  **Run locally**:
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-4. **Build for production:**
-   ```bash
-   npm run build
-   ```
+## Project Walkthrough
 
-## Screenshots
+### 1. Wallet Connected & Balance
+Once connected via Freighter, the app displays your truncated public key and live XLM balance fetched from the Testnet.
 
-*(Screenshots section placeholders)*
-- **Landing Page**: Futuristic dark-themed hero section.
-- **Active Dashboard**: Wallet balance and payment form.
-- **Transaction Success**: Green confirmation panel with tx hash.
+![Wallet Connected & Balance Displayed](./public/screenshots/dashboard.png)
+
+### 2. Transaction Results
+After submitting a payment, the app provides real-time feedback. Green indicators signify a successful ledger entry with a direct link to the transaction explorer.
+
+![Successful Transaction Result](./public/screenshots/success.png)
+
+## Technology Stack
+- **Framework**: Next.js 14 (App Router)
+- **Stellar SDK**: `@stellar/stellar-sdk` & `@stellar/freighter-api`
+- **Styling**: TailwindCSS & shadcn/ui
+- **Icons**: Lucide React
 
 ## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT License. See [LICENSE](LICENSE) for more information.
